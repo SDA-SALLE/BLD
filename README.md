@@ -1,5 +1,5 @@
 # BLD
-building construction. </br>
+MOBILES. </br>
 Programing in python 2.7 import directories xlrd, json, csv, sys. </br>
 To import xlrd preview install pip: 
 <ul>
@@ -7,7 +7,7 @@ To import xlrd preview install pip:
 <li>$ pip install xlrd
 </ul>
 
-Execute for paved archive in folder src/main.py 
+Execute for mobiles archive in folder src/main.py 
 <ul>
 <li>$ python main.py
 </ul>
