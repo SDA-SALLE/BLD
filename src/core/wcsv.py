@@ -8,9 +8,9 @@ import csv
 import os
 import xlrd
 
-def writeEmisions(data, folder): 
+def writeEmisions(data, folder, year): 
 	
-	csvsalida = open(folder + 'Emisions.csv', 'w')
+	csvsalida = open(folder + 'Emisions_'+ year +'.csv', 'w')
 	
 	names = ['ID', 'FID_Grilla', 'ROW', 'COL', 'LAT', 'LON', 'AREA', 'Dias', 'Seg', 'PM25(g/proyecto)', 'PM25 (E(g/d))', 'PM25(g)', 'PM25(t)',  'PM10(g/proyecto)', 'PM10 (E(g/d))', 'PM10(g)', 'PM10(t)']
 	for name in names: 
@@ -59,8 +59,8 @@ def writeEmisions(data, folder):
 		csvsalida.write('\n')
 	csvsalida.close()
 
-def writeEmisionsTYear(ETYearPM25, ETYearPM10, folder):
-	csvsalida = open(folder + 'EmisionsTYear.csv', 'w')
+def writeEmisionsTYear(ETYearPM25, ETYearPM10, folder, year):
+	csvsalida = open(folder + 'EmisionsTYear_'+ year +'.csv', 'w')
 	names = ['ETYearPM25', 'ETYearPM10']
 	for name in names: 
 		if name == 'ETYearPM25':
@@ -76,14 +76,14 @@ def writeEmisionsTYear(ETYearPM25, ETYearPM10, folder):
 	csvsalida.write('\n')
 	csvsalida.close()
 
-def writeDesagregation(data): 
+def writeDesagregation(data, year): 
 
 	folder = os.path.join('..', 'data', 'out', 'desagregation', '')
 	archives = ['PM25', 'PM10']
 
 	names = ['ROW', 'COL', 'LAT', 'LON', 'POLNAME', 'UNIT', 'E00h', 'E01h', 'E02h', 'E03h', 'E04h', 'E05h', 'E06h' ,'E07h', 'E08h', 'E09h', 'E10h', 'E11h', 'E12h', 'E13h', 'E14h', 'E15h', 'E16h', 'E17h', 'E18h', 'E19h', 'E20h', 'E21h', 'E22h', 'E23h', 'E24h']
 	for archive in archives:
-		csvsalida = open(folder + archive + '.csv', 'w')
+		csvsalida = open(folder + archive +'_'+ year+'.csv', 'w')
 
 		for name in names: 
 			if name == 'ROW':

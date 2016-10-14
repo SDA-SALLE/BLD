@@ -11,9 +11,9 @@ from matriz import *
 from wcsv import *
 
 
-def emisionsconvp(archive): 
+def emisionsconvp(archive, year): 
 	
-	archiveConstants = os.path.join('..', 'data', 'in', 'constants', 'FE.xlsx')
+	archiveConstants = os.path.join('..', 'data', 'in', 'constants', 'FE_'+ year+'.xlsx')
 	Mconstants = convertXLSX(archiveConstants)
 	constants = {}
 	for i in range(1, Mconstants.shape[0]):
@@ -88,9 +88,9 @@ def emisionsconvp(archive):
 	 	data[key]['Emisions']['PM10']['t'].append(data[key]['Emisions']['PM10']['g'][0]/1000000)
 
 	folder = os.path.join('..', 'data', 'out', 'emisions', '')
-	writeEmisions(data, folder)
+	writeEmisions(data, folder, year)
 
-def emisionsTYear(archive):
+def emisionsTYear(archive, year):
 
 	MEmisions = convertCSV(archive)
 	head = MEmisions[0,:]
@@ -111,7 +111,7 @@ def emisionsTYear(archive):
 		ETYearPM10 += float(MEmisions[i][colPM10])
 
 	folder = os.path.join('..', 'data', 'out', 'emisions', '')
-	writeEmisionsTYear(ETYearPM25, ETYearPM10, folder)
+	writeEmisionsTYear(ETYearPM25, ETYearPM10, folder, year)
 
 
 

@@ -10,7 +10,7 @@ sys.path.append('core')
 from matriz import *
 from wcsv import *
 
-def desagregation(archive):
+def desagregation(archive, year):
 	MEmisions = convertCSV(archive)
 
 	head = MEmisions[0,:]
@@ -73,7 +73,7 @@ def desagregation(archive):
 							data[key][Type][hour].append(0)
 
 
-	writeDesagregation(data)
+	writeDesagregation(data, year)
 	
 def final(Archive):
 	

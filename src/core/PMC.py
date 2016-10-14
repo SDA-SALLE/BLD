@@ -24,8 +24,14 @@ def pmc(folder):
 
 	
 	for i in range (0, len(listEmitionsPM25)):
+
 		archivePM25 = listEmitionsPM25[i]
-		archivePM10 = listEmitionsPM25[i].replace('25', '10')
+		
+		if '25' in listEmitionsPM25[i]:
+			archivePM10 = listEmitionsPM25[i].replace('25', '10')
+		elif '2.5' in listEmitionsPM25[i]:
+			archivePM10 = listEmitionsPM25[i].replace('2.5', '10')
+
 		archivePM25 = folder + archivePM25
 		archivePM10 = folder + archivePM10
 
